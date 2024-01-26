@@ -1,0 +1,20 @@
+[limit]
+name = "limit"
+desc = "The number of articles."
+type = "number"
+default = 12
+
+[linkText]
+name = "linkText"
+desc = "The text of link, the entire card will be clickable when empty."
+default = "Read more"
+
+[sections]
+name = "sections"
+desc = "The article sections, multiple sections separated by comma, such as `blog,docs`."
+
+[summaryLen]
+name = "summaryLen"
+desc = "The max length of summary."
+type = "number"
+default = 240

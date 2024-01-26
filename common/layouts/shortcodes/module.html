@@ -1,0 +1,78 @@
+{{- $path := .Get 0 }}
+{{- $info := split $path "/" }}
+{{- $owner := index $info 1 }}
+{{- $repo := index $info 2 }}
+{{- $prefix := "" }}
+{{- with after 3 $info }}
+  {{- $prefix = delimit . "/" }}
+{{- end }}
+{{- $height := 30 }}
+<table>
+  <tr>
+    <th>Module</th>
+  </tr>
+  <tr>
+    <td><code class="user-select-all">{{ $path }}</code></td>
+  </tr>
+  <tr>
+    <td>
+      <a
+        class="text-decoration-none"
+        href="https://github.com/{{ $owner }}/{{ $repo }}/stargazers"
+        target="_blank"
+        rel="noopener noreferrer">
+        <img
+          class="mb-2"
+          src="https://img.shields.io/github/stars/{{ $owner }}/{{ $repo }}?style=flat-square"
+          alt="GitHub Stars"
+          height="{{ $height }}" />
+      </a>
+      <a
+        class="text-decoration-none"
+        href="https://github.com/{{ $owner }}/{{ $repo }}/network/dependents"
+        target="_blank"
+        rel="noopener noreferrer">
+        <img
+          class="mb-2"
+          src="https://img.shields.io/badge/dynamic/json?color=success&label=used+by&query=repositories_humanize&logo=hugo&style=flat-square&url=https%3a//api.razonyang.com/v1/github/dependents/{{ $owner }}/{{ $repo }}"
+          alt="Used By"
+          height="{{ $height }}" />
+      </a>
+      <a
+        class="text-decoration-none"
+        href="https://github.com/{{ $owner }}/{{ $repo }}"
+        target="_blank"
+        rel="noopener noreferrer">
+        <img
+          class="mb-2"
+          src="https://img.shields.io/badge/dynamic/json?color=important&label=requirements&query=requirements&logo=hugo&style=flat-square&url=https%3a//api.razonyang.com/v1/hugo/modules/github.com/{{ $owner }}/{{ $repo }}"
+          alt="Used By"
+          height="{{ $height }}" />
+      </a>
+      <a
+        class="text-decoration-none"
+        href="https://github.com/{{ $owner }}/{{ $repo }}/blob/main/LICENSE"
+        target="_blank"
+        rel="noopener noreferrer">
+        <img
+          class="mb-2"
+          src="https://img.shields.io/github/license/{{ $owner }}/{{ $repo }}?style=flat-square"
+          alt="Used By"
+          height="{{ $height }}" />
+      </a>
+      {{- $api := printf "https://api.razonyang.com/v1/github/tag/%s/%s?prefix=%s/" $owner $repo $prefix }}
+      {{- $version := printf "https://img.shields.io/badge/dynamic/json?color=blue&label=version&query=name&url=%s" ($api) }}
+      <a
+        class="text-decoration-none"
+        href="https://github.com/{{ $owner }}/{{ $repo }}/releases"
+        target="_blank"
+        rel="noopener noreferrer">
+        <img
+          class="mb-2"
+          src="{{ $version }}"
+          alt="Used By"
+          height="{{ $height }}" />
+      </a>
+    </td>
+  </tr>
+</table>

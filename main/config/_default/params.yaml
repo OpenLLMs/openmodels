@@ -1,0 +1,15 @@
+hb:
+  blog:
+    sidebar:
+      profile:
+        company: "[OpenModels](https://github.com/TheOpenModels)"
+        location: Internet
+        socials:
+          github: OpenModels
+          githubsponsors: https://github.com/TheOpenModels
+          mastodon: https://github.com/TheOpenModels
+          paypal: razonyang
+          rss: true
+  content_panel:
+    repo:
+      subpath: main

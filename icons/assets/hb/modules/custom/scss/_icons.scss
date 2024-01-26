@@ -1,0 +1,9 @@
+.icons-panel {
+    @include top-offset;
+}
+
+.icon {
+    img {
+        height: 60px;
+    }
+}

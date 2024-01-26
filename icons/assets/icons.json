@@ -1,0 +1,13 @@
+{{- $icons := slice -}}
+{{- range sort (resources.Match "icons/**/*.svg") "Name" -}}
+  {{- $match := findRESubmatch `icons/(.+)/(.+)\.svg` .Name -}}
+  {{- $info := index $match 0 -}}
+  {{- $vendor := index $info 1 }}
+  {{- $name := index $info 2 }}
+  {{- $icons = $icons | append (dict
+    "vendor" $vendor
+    "name" $name
+    "url" .RelPermalink)
+  -}}
+{{- end -}}
+{{- $icons | jsonify -}}

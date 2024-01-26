@@ -1,0 +1,20 @@
+title: Hugo Icons Module
+copyright: Copyright © 2022-2023 [OpenModels](https://openmodels.org). All Rights Reserved.
+baseURL: https://aitools.org.cn/
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: true
+enableRobotsTXT: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+
+taxonomies:
+  _merge: shallow
+
+markup:
+  _merge: deep
+
+build:
+  _merge: shallow

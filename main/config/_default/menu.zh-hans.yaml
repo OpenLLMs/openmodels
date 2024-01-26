@@ -1,0 +1,17 @@
+main:
+  - name: AI工具
+    identifier: aitools
+    weight: 10
+    url: https://aitools.org.cn/
+    params:
+      icon:
+        name: icons
+        vendor: fas
+
+  - name: AI框架
+    weight: 20
+    url: https://ai-infra.com/
+    params:
+      icon:
+        name: hugo
+        vendor: simple

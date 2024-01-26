@@ -1,0 +1,103 @@
+description: Open source AI Large Language Model Community .
+
+encrypt:
+  password: hugomods.com
+
+bootstrap:
+  config_toggle:
+    langs:
+      - yaml
+      - toml
+      - json
+
+hb:
+  google_fonts:
+    families:
+      - name: Montserrat
+      - name: Agbalumo
+  thanks:
+    socials:
+      githubsponsors: https://github.com/sponsors/razonyang
+      paypal: razonyang
+  styles:
+    primary: '#ff4088'
+  announcement_bar:
+    interval: 2500
+  header:
+    news:
+      icon_name: megaphone-fill
+      sections:
+        - news
+        - releases
+    # logo_bg: '#fff'
+    socials:
+      github: hugomods
+      githubsponsors: https://github.com/sponsors/razonyang
+      mastodon: https://techhub.social/@hugomods
+      paypal: razonyang
+      rss: true
+  footer:
+    socials:
+      github: hugomods
+      githubsponsors: https://github.com/sponsors/razonyang
+      mastodon: https://techhub.social/@hugomods
+      paypal: razonyang
+      rss: true
+  blog:
+    sidebar:
+      taxonomies:
+        style: pills
+    home:
+      recent_posts: 12
+  content_panel:
+    repo:
+      service: github
+      repo: hugomods/site
+      branch: main
+
+seo:
+  favicons:
+    icon: images/logo.png
+
+pwa:
+  icon_path: images/logo.png
+  # debug: true
+  manifest:
+    background_color: '#ff4088'
+    theme_color: '#ff4088'
+
+hugopress:
+  modules:
+    custom:
+      hooks:
+        hb-docs-doc-content-begin:
+          cacheable: true
+
+decap_cms:
+  backend:
+    name: github
+    repo: hugomods/site
+    branch: main
+  collections:
+    blog:
+      label: "Blog"
+      name: "blog"
+      folder: "content/blog"
+      create: true
+      nested:
+        depth: 1000
+      fields:
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Publish Date", name: "date", widget: "datetime"}
+        - {label: "Body", name: "body", widget: "markdown"}
+    docs:
+      label: "Docs"
+      name: "docs"
+      folder: "content/docs"
+      create: true
+      nested:
+        depth: 1000
+      fields:
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Publish Date", name: "date", widget: "datetime"}
+        - {label: "Body", name: "body", widget: "markdown"}
